@@ -40,4 +40,14 @@ public class BasePage {
                 .visibilityOfElementLocated(locator))
                 .getText();
     }
+    
+    public boolean isDisplayed(By locator) {
+        try {
+            return wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(locator))
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

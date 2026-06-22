@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Date;
+
 import org.openqa.selenium.By;
 
 import base.BasePage;
@@ -16,6 +18,33 @@ public class RegisterPage extends BasePage{
 	By confirmPassword=By.id("input-confirm");
 	By agree=By.name("agree");
 	By submit= By.xpath("//*[@id=\"content\"]/form/div/div/input[2]");
+	By logout=By.linkText("Logout");
+	By expectedHeading =By.xpath("//*[@id=\"content\"]/h1");
+	By expectedProperDetails=By.id("content");
+	By next=By.xpath("//*[@id=\"content\"]/div/div/a");
+	By accountInfo=By.linkText("Edit your account information");
+	
+	public void continueBtn() {
+		click(next);
+	}
+	
+	public boolean isaccountInfoDisplayed()
+	{
+		return isDisplayed(accountInfo);
+	}
+	
+	public boolean isRegisterPageDisplayed() {
+	    return isDisplayed(logout);
+	}
+	
+	public String expectedProperDetails() {
+		return getText(expectedProperDetails);
+	}
+	
+	public String expectedHeading()
+	{
+		return getText(expectedHeading);
+	}
 	
 	public void clickMyAccount() {
         click(myAccount);
@@ -62,4 +91,10 @@ public class RegisterPage extends BasePage{
 	public void submitBtn() {
 		click(submit);
 	}
+	
+	public String generateNewEmail() {
+		return new Date().toString().replaceAll("\\s", "").replaceAll("\\:", "")+"@gmail.com";
+	}
+	
+	
 }
