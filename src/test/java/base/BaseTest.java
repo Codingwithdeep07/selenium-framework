@@ -12,8 +12,10 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setup(String browser) {
+    public void setup() {
 
+        String browser = System.getProperty("browser", "chrome");
+    	
         DriverFactory.initDriver(browser);
 
         DriverFactory.getDriver()

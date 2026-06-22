@@ -1,7 +1,9 @@
 package dataproviders;
 
 import org.testng.annotations.DataProvider;
-import utilities.ExcelUtil;
+
+import utilities.CSVUtil;
+
 
 public class TestDataProvider {
 	
@@ -12,8 +14,6 @@ public class TestDataProvider {
     @DataProvider(name = "loginData")
     public Object[][] loginData() {
 
-        return ExcelUtil.getTestData(
-        		TEST_DATA_PATH,
-                "Login");
+    	  return CSVUtil.getTestData(TEST_DATA_PATH);
     }
 }

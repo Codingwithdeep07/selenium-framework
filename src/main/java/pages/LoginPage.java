@@ -6,12 +6,22 @@ import base.BasePage;
 
 public class LoginPage extends BasePage {
 
-    By username = By.id("userName");
-    By password = By.id("password");
-    By loginBtn = By.id("login");
-
-    public LoginPage enterUsername(String user) {
-        enterText(username,user);
+	By login=By.linkText("Login");
+    By email= By.id("input-email");
+    By password = By.id("input-password");
+    By loginBtn = By.xpath("//*[@id=\"content\"]/div/div[2]/div/form/input");
+	By myAccount=By.xpath("//*[@id='top-links']/ul/li[2]");
+    
+    public void clickMyAccount() {
+        click(myAccount);
+    }
+    
+    public void loginBtn() {
+		click(login);
+	}
+    
+    public LoginPage enterEmail(String user) {
+        enterText(email,user);
         return this;
     }
 
